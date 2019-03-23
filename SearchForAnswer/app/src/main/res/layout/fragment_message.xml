@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="#FFFFFF">
+
+    <com.scwang.wave.MultiWaveHeader
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:mwhStartColor="#00FF00"
+            app:mwhCloseColor="#0000FF"
+            app:mwhVelocity="5"
+            app:mwhColorAlpha="0.25"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:text="消息界面（开发中。。。）"
+              android:gravity="center"/>
+
+</RelativeLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="20dp"
+                  android:orientation="vertical">
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="20dp"
+                  android:text="个人信息"
+                  android:textColor="@android:color/black"
+                  android:textSize="17sp"
+                  android:textStyle="bold"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="12dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="昵称:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="小建明"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="性别:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="男"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="年龄:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="21"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="星座:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="天蝎座"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="地区:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="广东省广州市"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="学校:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="华南师范大学"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="20dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="年级:"
+                      android:textColor="#808080"
+                      android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="10dp"
+                      android:text="2016级"
+                      android:textColor="#404040"
+                      android:textSize="15sp"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="20dp"
+                  android:layout_marginTop="20dp"
+                  android:text="座右铭"
+                  android:textColor="@android:color/black"
+                  android:textSize="17sp"
+                  android:textStyle="bold"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:layout_marginTop="12dp"
+                  android:text="努力学习，天天向上"
+                  android:textColor="#404040"
+                  android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

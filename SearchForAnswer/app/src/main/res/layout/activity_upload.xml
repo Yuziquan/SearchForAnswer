@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_question"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/iv_question_shape"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:text="您的题目(印刷体)"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:id="@+id/iv_answer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/iv_answer_shape"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btn_upload_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照提交您的答案"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_upload_answer_btn"
+            android:layout_toRightOf="@id/iv_answer"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:text="您的答案(手写体)"/>
+
+
+    <Button
+        android:id="@+id/btn_upload_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:text="点击上传"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_upload_all_btn"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

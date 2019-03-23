@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <!--预览界面-->
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/preview_layout"
+                    android:visibility="visible">
+
+        <!--相机预览-->
+        <com.wuchangi.searchforanswer.widget.CameraPreview
+                android:id="@+id/camera_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <!--对焦圆圈-->
+        <com.wuchangi.searchforanswer.widget.FocusView
+                android:id="@+id/focus_view"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"/>
+
+        <!--网格参考线-->
+        <com.wuchangi.searchforanswer.widget.ReferenceLine
+                android:id="@+id/reference_line"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/tv_preview_hint"
+                  android:layout_centerInParent="true"
+                  android:gravity="center"
+                  android:lineSpacingMultiplier="2.0"
+                  android:text="请横屏拍照\n题目文字尽量与参考线对齐哦~~"
+                  android:textColor="#D3D3D3"/>
+
+        <!--预览界面底下的三个控件-->
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:padding="12dp">
+
+            <Button
+                    android:id="@+id/btn_album"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="#00000000"
+                    android:textSize="16dp"
+                    android:text="相册"
+                    android:textColor="#ffffff"/>
+
+            <ImageView android:layout_width="65dp"
+                       android:layout_height="65dp"
+                       android:id="@+id/iv_shutter"
+                       android:layout_centerInParent="true"
+                       android:background="@drawable/shutter_bg"
+                       android:clickable="true"
+                       android:src="@drawable/shutter"
+                       android:padding="12dp"/>
+
+            <ImageView android:layout_width="48dp"
+                       android:layout_height="48dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_alignParentRight="true"
+                       android:clickable="true"
+                       android:id="@+id/iv_close_preview"
+                       android:padding="12dp"
+                       android:src="@drawable/close"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--图片裁剪界面-->
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:id="@+id/crop_layout"
+                  android:orientation="vertical"
+                  android:background="#000000"
+                  android:visibility="gone">
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+            <com.edmodo.cropper.CropImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/iv_crop"/>
+
+            <TextView
+                    android:id="@+id/tv_crop_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_centerVertical="true"
+                    android:text="一次只能提交一道题哦~~"
+                    android:textColor="#ffffff"/>
+        </RelativeLayout>
+
+        <!--裁剪界面底下的两个控件-->
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:padding="12dp">
+
+            <ImageView android:layout_width="48dp"
+                       android:layout_height="48dp"
+                       android:clickable="true"
+                       android:layout_alignParentLeft="true"
+                       android:id="@+id/iv_close_crop"
+                       android:padding="12dp"
+                       android:src="@drawable/close"/>
+
+            <ImageView android:layout_width="48dp"
+                       android:layout_height="48dp"
+                       android:clickable="true"
+                       android:layout_alignParentRight="true"
+                       android:id="@+id/iv_start_crop"
+                       android:padding="12dp"
+                       android:src="@drawable/ok"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

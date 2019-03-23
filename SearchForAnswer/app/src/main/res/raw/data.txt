@@ -1,0 +1,33 @@
+I had _____ unusual experience on Sunday.
+a,an,the,/
+2
+Tom will visit our farm_____ two weeks.
+in,after,during,on
+1
+Would you like _ tea?
+any,some,much,few
+2
+_____ you are in trouble,you can call me,even at night. 
+Wherever,Whoever,Whatever,Whenever
+4
+There __ some water in the glass. 
+is,are,am,be
+1
+Tony can't_____English. 
+speaks,to speak,speak,speaking
+3
+Lily is a friend of __. 
+she,hers,her,me
+2
+Who's the lady______blue? 
+in,on,at,with
+1
+she with her mother often___shopping on Sundays. 	
+goes,go,to go,going
+2
+There is _ meat in the fridge.
+any,some,much,few
+2
+I never have _ mistakes in my homework.
+any,some,much,few
+1
