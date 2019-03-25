@@ -317,12 +317,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     }
 
-
     public void setHandler(Handler handler)
     {
         this.handler = handler;
     }
-
 
     public Bitmap getBitmap()
     {
