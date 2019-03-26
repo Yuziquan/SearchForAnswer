@@ -364,22 +364,15 @@ public class TakingPhotoActivity extends BaseActivity implements View.OnClickLis
 //                Log.d(TAG, "图片二值化完");
 
 
-
                 //销毁等待条
                 progressDialog.dismiss();
 
                 BitmapEvent bitmapEvent = new BitmapEvent();
                 bitmapEvent.setBitmap(grayHandledBitmap);
 
-
-                if(UploadActivity.sIsAnswerTakingPhoto){
-                    EventBus.getDefault().post(bitmapEvent);
-                    finish();
-                }else{
-                    EventBus.getDefault().postSticky(bitmapEvent);
-                    Intent intent = new Intent(TakingPhotoActivity.this, UploadActivity.class);
-                    startActivity(intent);
-                }
+                EventBus.getDefault().postSticky(bitmapEvent);
+                Intent intent = new Intent(TakingPhotoActivity.this, UploadActivity.class);
+                startActivity(intent);
             }
         }).start();
 

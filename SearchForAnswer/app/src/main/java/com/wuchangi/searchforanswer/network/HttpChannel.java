@@ -1,8 +1,5 @@
 package com.wuchangi.searchforanswer.network;
 
-import android.widget.Toast;
-
-import com.wuchangi.searchforanswer.base.BaseApplication;
 import com.wuchangi.searchforanswer.constant.Constant;
 import com.wuchangi.searchforanswer.utils.RetrofitUtils;
 
@@ -60,7 +57,7 @@ public class HttpChannel {
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         try {
-                            ReceiveMessageManager.getInstance().dispatchAnswerMessage(responseBody.string(), appendUrl);
+                            ReceiveMessageManager.getInstance().dispatchAnalysisMessage(responseBody.string(), appendUrl);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

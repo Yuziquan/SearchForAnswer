@@ -46,4 +46,12 @@ public class SendMessageManager {
         Observable<ResponseBody> observable = mApiService.getAnalysisResult(picture);
         mHttpChannel.sendMessageToGetStringResponse(observable, Constant.GET_ANALYSIS_RESULT);
     }
+
+    public void getAnswerSheetResult(File file){
+        RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpg"), file);
+        MultipartBody.Part picture = MultipartBody.Part.createFormData("the_file", "answer_sheet.jpg", requestBody);
+        Observable<ResponseBody> observable = mApiService.getAnswerSheetResult(picture);
+        mHttpChannel.sendMessageToGetStringResponse(observable, Constant.GET_ANSWER_SHEET_RESULT);
+    }
+
 }

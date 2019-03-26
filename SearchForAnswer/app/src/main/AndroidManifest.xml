@@ -26,11 +26,11 @@
         </activity>
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.TakingPhotoActivity" />
-        <activity android:name=".activity.ResultActivity" />
+        <activity android:name=".activity.SheetResultActivity" />
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".activity.SplashActivity" />
         <activity android:name=".activity.UploadActivity" />
-        <activity android:name=".activity.AnswerActivity">
+        <activity android:name=".activity.AnalysisActivity">
 
         </activity>
     </application>

@@ -10,13 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.wuchangi.searchforanswer.R;
 import com.wuchangi.searchforanswer.base.AnalysisEvent;
 import com.wuchangi.searchforanswer.base.AnswerEvent;
+import com.wuchangi.searchforanswer.base.AnswerSheetEvent;
 import com.wuchangi.searchforanswer.base.BitmapEvent;
-import com.wuchangi.searchforanswer.bean.AnalysisResult;
 import com.wuchangi.searchforanswer.network.SendMessageManager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -31,13 +30,10 @@ import java.io.IOException;
 
 public class UploadActivity extends AppCompatActivity {
 
-    private ImageView mIvQuestion;
-    private ImageView mIvAnswer;
-    private Button mBtnUploadAnswer;
-    private Button mBtnUploadAll;
-    public static boolean sIsAnswerTakingPhoto = false;
-    private Bitmap mQuestionPicture = null;
-    private Bitmap mAnswerPicture = null;
+    private ImageView mIvResult;
+    private Button mBtnUploadQuestion;
+    private Button mBtnUploadAnswerSheet;
+    private Bitmap mPicture = null;
     private ProgressDialog mProgressDialog;
     private AnswerEvent mAnswerEvent = null;
     private AnalysisEvent mAnalysisEvent = null;
@@ -51,61 +47,76 @@ public class UploadActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("上传题目");
+            actionBar.setTitle("上传题目及答案");
         }
 
-        initWidget();
+        initView();
     }
 
-    private void initWidget() {
-        mIvQuestion = (ImageView) findViewById(R.id.iv_question);
-        mIvAnswer = (ImageView) findViewById(R.id.iv_answer);
-        mBtnUploadAnswer = (Button) findViewById(R.id.btn_upload_answer);
-        mBtnUploadAll = (Button) findViewById(R.id.btn_upload_all);
+    private void initView() {
+        mIvResult = (ImageView) findViewById(R.id.iv_result);
+        mBtnUploadQuestion = (Button) findViewById(R.id.btn_upload_question);
+        mBtnUploadAnswerSheet = (Button) findViewById(R.id.btn_upload_answer_sheet);
 
         EventBus.getDefault().register(this);
 
-        mBtnUploadAnswer.setOnClickListener(new View.OnClickListener() {
+        mBtnUploadQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UploadActivity.this, TakingPhotoActivity.class));
-                sIsAnswerTakingPhoto = true;
+                uploadQuestion();
             }
         });
 
-
-        mBtnUploadAll.setOnClickListener(new View.OnClickListener() {
+        mBtnUploadAnswerSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                upLoadAll();
+                uploadAnswerSheet();
             }
         });
-
     }
 
-    private void upLoadAll() {
-        if (mAnswerPicture == null) {
-            Toast.makeText(this, "别忘了上传您的手写体答案~~", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
-        SendMessageManager.getInstance().getHandwritingResult(answerBitmap2File(mAnswerPicture));
-        SendMessageManager.getInstance().getAnalysisResult(questionBitmap2File(mQuestionPicture));
+    private void uploadQuestion() {
+        SendMessageManager.getInstance().getHandwritingResult(answerBitmap2File(mPicture));
+        SendMessageManager.getInstance().getAnalysisResult(questionBitmap2File(mPicture));
 
         // 显示等待条
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage("图片正在上传中...");
         mProgressDialog.show();
-//        mProgressDialog.dismiss();
-//        Intent intent = new Intent(UploadActivity.this, AnswerActivity.class);
-//        startActivity(intent);
     }
+
+
+    private void uploadAnswerSheet() {
+        SendMessageManager.getInstance().getAnswerSheetResult(questionBitmap2File(mPicture));
+
+        // 显示等待条
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("图片正在上传中...");
+        mProgressDialog.show();
+    }
+
+
+//    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+//    public void onReceiveAnswerEvent(AnswerEvent answerEvent) {
+//        mProgressDialog.dismiss();
+//        Intent intent = new Intent(UploadActivity.this, AnalysisActivity.class);
+//        startActivity(intent);
+//    }
 
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onReceiveAnalysisEvent(AnalysisEvent analysisEvent) {
         mProgressDialog.dismiss();
-        Intent intent = new Intent(UploadActivity.this, AnswerActivity.class);
+        Intent intent = new Intent(UploadActivity.this, AnalysisActivity.class);
+        startActivity(intent);
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onReceiveAnswerSheetEvent(AnswerSheetEvent answerSheetEvent) {
+        mProgressDialog.dismiss();
+        Intent intent = new Intent(UploadActivity.this, SheetResultActivity.class);
         startActivity(intent);
     }
 
@@ -113,14 +124,8 @@ public class UploadActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onReceivePicture(BitmapEvent bitmapEvent) {
         Bitmap bitmap = bitmapEvent.getBitmap();
-        if (!sIsAnswerTakingPhoto) {
-            mQuestionPicture = bitmap;
-            mIvQuestion.setImageBitmap(bitmap);
-        } else {
-            mAnswerPicture = bitmap;
-            mIvAnswer.setImageBitmap(bitmap);
-            sIsAnswerTakingPhoto = false;
-        }
+        mPicture = bitmap;
+        mIvResult.setImageBitmap(bitmap);
     }
 
 

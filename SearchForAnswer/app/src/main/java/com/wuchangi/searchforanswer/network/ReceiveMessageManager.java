@@ -2,7 +2,9 @@ package com.wuchangi.searchforanswer.network;
 
 import com.wuchangi.searchforanswer.base.AnalysisEvent;
 import com.wuchangi.searchforanswer.base.AnswerEvent;
+import com.wuchangi.searchforanswer.base.AnswerSheetEvent;
 import com.wuchangi.searchforanswer.bean.AnalysisResult;
+import com.wuchangi.searchforanswer.bean.AnswerSheetResult;
 import com.wuchangi.searchforanswer.constant.Constant;
 
 import org.greenrobot.eventbus.EventBus;
@@ -22,7 +24,7 @@ public class ReceiveMessageManager {
                 sReceiveMessageManager;
     }
 
-    public void dispatchAnswerMessage(String response, String appendUrl) {
+    public void dispatchAnalysisMessage(String response, String appendUrl) {
         switch (appendUrl) {
             case Constant.GET_HANDWRITING_RESULT:
                 AnswerEvent answerEvent = new AnswerEvent();
@@ -34,6 +36,12 @@ public class ReceiveMessageManager {
                 AnalysisEvent analysisEvent = new AnalysisEvent();
                 analysisEvent.setAnalysis(response);
                 EventBus.getDefault().postSticky(analysisEvent);
+                break;
+
+            case Constant.GET_ANSWER_SHEET_RESULT:
+                AnswerSheetEvent answerSheetEvent = new AnswerSheetEvent();
+                answerSheetEvent.setAnswerSheetResult(response);
+                EventBus.getDefault().postSticky(answerSheetEvent);
                 break;
 
             default:

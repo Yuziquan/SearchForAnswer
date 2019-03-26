@@ -5,15 +5,15 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/iv_question"
-        android:layout_marginTop="70dp"
+        android:id="@+id/iv_result"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="250dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:background="@drawable/iv_question_shape"
         android:layout_gravity="center_horizontal"/>
 
@@ -23,38 +23,11 @@
         android:layout_gravity="center_horizontal"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        android:text="您的题目(印刷体)"/>
+        android:text="您的题目或答题卡"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
-        <ImageView
-            android:id="@+id/iv_answer"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/iv_answer_shape"
-            android:layout_centerHorizontal="true"/>
-
-        <Button
-            android:id="@+id/btn_upload_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="拍照提交您的答案"
-            android:textSize="17sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/bg_upload_answer_btn"
-            android:layout_toRightOf="@id/iv_answer"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"/>
-
-    </RelativeLayout>
 
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -63,16 +36,40 @@
         android:text="您的答案(手写体)"/>
 
 
-    <Button
-        android:id="@+id/btn_upload_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:text="点击上传"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:background="@drawable/bg_upload_all_btn"
-        android:textColor="@android:color/white"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_upload_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="上传单道题目及答案"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_upload_question_btn"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_upload_answer_sheet"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="上传答案卡"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_upload_answer_sheet_btn"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

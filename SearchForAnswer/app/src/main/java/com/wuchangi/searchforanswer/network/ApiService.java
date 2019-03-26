@@ -25,4 +25,8 @@ public interface ApiService {
     @Multipart
     @POST("printedText")
     Observable<ResponseBody> getAnalysisResult(@Part MultipartBody.Part printedQuestion);
+
+    @Multipart
+    @POST("answerCart")
+    Observable<ResponseBody> getAnswerSheetResult(@Part MultipartBody.Part answerSheet);
 }

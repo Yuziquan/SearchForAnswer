@@ -3,16 +3,13 @@ package com.wuchangi.searchforanswer.activity;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.wuchangi.searchforanswer.R;
 import com.wuchangi.searchforanswer.base.AnalysisEvent;
 import com.wuchangi.searchforanswer.base.AnswerEvent;
-import com.wuchangi.searchforanswer.base.BaseActivity;
 import com.wuchangi.searchforanswer.bean.AnalysisResult;
 
 import org.greenrobot.eventbus.EventBus;
@@ -20,7 +17,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public class AnswerActivity extends AppCompatActivity {
+public class AnalysisActivity extends AppCompatActivity {
 
     private TextView mTvQuestion;
     private TextView mTvOptionA;
@@ -35,7 +32,7 @@ public class AnswerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer);
+        setContentView(R.layout.activity_analysis);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -43,11 +40,10 @@ public class AnswerActivity extends AppCompatActivity {
             actionBar.setTitle("题目解析");
         }
 
-        initWidget();
+        initView();
     }
 
-    private void initWidget() {
-
+    private void initView() {
         mTvQuestion = (TextView) findViewById(R.id.tv_question);
         mTvOptionA = (TextView) findViewById(R.id.tv_option_a);
         mTvOptionB = (TextView) findViewById(R.id.tv_option_b);
